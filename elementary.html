@@ -109,13 +109,6 @@
       height: 100%;
       border: 0;
     }
-    /* Swap embedded viewer for a lightweight button on small screens */
-    .desktop-only { display: block; }
-    .mobile-only { display: none; }
-    @media (max-width: 600px) {
-      .desktop-only { display: none; }
-      .mobile-only { display: inline-block; }
-    }
   </style>
 </head>
 <body>
@@ -148,14 +141,9 @@
         Click Here to Register
       </a>
     </div>
-    <!-- Flyer embed (desktop/tablet) + lightweight mobile link -->
+    <!-- Flyer embed -->
     <div class="pdf-section">
-      <div class="desktop-only">
-        <img src="elementary%20wrestling%20flyer.png" alt="Elementary Wrestling Flyer" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;">
-      </div>
-      <a href="elementary%20wrestling%20flyer.png" target="_blank" class="cta-button mobile-only" aria-label="Open Elementary Wrestling Flyer Image">
-        Open Flyer (Image)
-      </a>
+      <img src="elementary%20wrestling%20flyer.png" alt="Elementary Wrestling Flyer" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;">
     </div>
     <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden;">
       <iframe src="https://calendar.google.com/calendar/embed?src=639db2cf4be3da54f3b8d4beed668ccb922558c25d5c2fe38b971935004f39c7%40group.calendar.google.com&ctz=America%2FNew_York" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" scrolling="no"></iframe>
