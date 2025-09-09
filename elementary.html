@@ -77,6 +77,45 @@
       object-fit: contain;
       margin: 0 10px;
     }
+    /* Registration button + flyer section */
+    .cta-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #800000;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .pdf-section {
+      margin: 20px 0 30px 0;
+      text-align: center;
+    }
+    .pdf-frame-wrapper {
+      position: relative;
+      width: 100%;
+      /* 8.5x11 ratio = 1.294; padding-bottom ~129.4% keeps a responsive letter-size frame */
+      padding-bottom: 129.4%;
+      height: 0;
+      overflow: hidden;
+      border: 1px solid #eee;
+      border-radius: 6px;
+    }
+    .pdf-frame-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    /* Swap embedded viewer for a lightweight button on small screens */
+    .desktop-only { display: block; }
+    .mobile-only { display: none; }
+    @media (max-width: 600px) {
+      .desktop-only { display: none; }
+      .mobile-only { display: inline-block; }
+    }
   </style>
 </head>
 <body>
@@ -104,6 +143,20 @@
   </nav>
   <main>
     <h1>Elementary Wrestling</h1>
+    <div style="margin: 20px 0;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFRrP53p1mweqlVAe86DHNygITtp4sH-uSCI1Oy2rJ-P2WIw/viewform" target="_blank" class="cta-button">
+        Click Here to Register
+      </a>
+    </div>
+    <!-- Flyer embed (desktop/tablet) + lightweight mobile link -->
+    <div class="pdf-section">
+      <div class="desktop-only">
+        <img src="elementary%20wrestling%20flyer.png" alt="Elementary Wrestling Flyer" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;">
+      </div>
+      <a href="elementary%20wrestling%20flyer.png" target="_blank" class="cta-button mobile-only" aria-label="Open Elementary Wrestling Flyer Image">
+        Open Flyer (Image)
+      </a>
+    </div>
     <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden;">
       <iframe src="https://calendar.google.com/calendar/embed?src=639db2cf4be3da54f3b8d4beed668ccb922558c25d5c2fe38b971935004f39c7%40group.calendar.google.com&ctz=America%2FNew_York" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" scrolling="no"></iframe>
     </div>
