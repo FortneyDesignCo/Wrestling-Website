@@ -141,13 +141,43 @@
         Click Here to Register
       </a>
     </div>
-    <!-- Flyer embed -->
     <div class="pdf-section">
-      <img src="elementary_flyer.png" alt="Elementary Wrestling Flyer" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;">
+      <img id="flyer-img" src="elementary_flyer.png?v=1" alt="Elementary Wrestling Flyer" loading="lazy" style="max-width: 100%; height: auto; border: 1px solid #eee; border-radius: 6px;">
+      <p id="flyer-fallback" style="display:none; margin-top:10px;">
+        Flyer image not loading? <a href="elementary_flyer.png" target="_blank" rel="noopener">Open the flyer directly</a>.
+      </p>
     </div>
     <div style="position: relative; width: 100%; padding-bottom: 75%; height: 0; overflow: hidden;">
       <iframe src="https://calendar.google.com/calendar/embed?src=639db2cf4be3da54f3b8d4beed668ccb922558c25d5c2fe38b971935004f39c7%40group.calendar.google.com&ctz=America%2FNew_York" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0" scrolling="no"></iframe>
     </div>
+    <script>
+      (function () {
+        var img = document.getElementById('flyer-img');
+        if (!img) return;
+        var fallback = document.getElementById('flyer-fallback');
+        var candidates = [
+          'elementary_flyer.png',
+          'elementary%20flyer.png',
+          'elementary%20wrestling%20flyer.png',
+          'Elementary_flyer.png',
+          'images/elementary_flyer.png',
+          'assets/elementary_flyer.png'
+        ];
+        var i = 0;
+        function tryNext() {
+          if (i >= candidates.length) {
+            if (fallback) fallback.style.display = 'block';
+            return;
+          }
+          var next = candidates[i++] + '?v=' + Date.now();
+          if (img.src.endsWith(next)) { tryNext(); return; }
+          img.src = next;
+        }
+        img.addEventListener('error', tryNext);
+        // Cache-bust initial load on some hosts (e.g., GitHub Pages)
+        img.src = 'elementary_flyer.png?v=' + Date.now();
+      })();
+    </script>
   </main>
   <footer>
     <a href="https://www.facebook.com/GettysburgWarriorsWrestling" target="_blank">
