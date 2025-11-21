@@ -359,7 +359,7 @@ input[type="submit"]:hover {
   nav ul { display: flex; flex-wrap: wrap; justify-content: center; height: auto; padding: 10px; }
   nav ul li { margin: 5px 10px; }
   nav ul li ul {
-    top: calc(100% + 32px); /* Drop further down on mobile so it doesn't cover nearby text */
+    top: calc(100% + 52px); /* Drop further down on mobile so it doesn't cover nearby text */
     left: 50%;
     transform: translateX(-50%);
   }
